@@ -4,5 +4,5 @@ import { User } from './user.entity';
 
 @Injectable()
 export class UserRepository extends Repository<User> {
-  // 커스텀 메서드를 여기에 추가할 수 있습니다.
+    // 필요한 추가 메서드를 정의할 수 있습니다.
 }

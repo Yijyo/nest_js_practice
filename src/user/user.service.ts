@@ -7,8 +7,8 @@ import { UserRepository } from './user.repository';
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(User)
-        private userRepository: UserRepository
+        @InjectRepository(UserRepository)
+        private readonly userRepository: UserRepository
     ) { }
 
     public async create(user: User): Promise<User> {

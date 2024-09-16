@@ -22,8 +22,7 @@ import { UserRepository } from 'src/user/user.repository';
       username: 'yijyo',
       password: '1234',
       database: 'health_api',
-      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      synchronize: true, // 개발 환경에서만 true로 설정
+      synchronize: true,
     }),
     UserModule,
   ],
