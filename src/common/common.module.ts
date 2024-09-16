@@ -5,6 +5,8 @@ import { HttpModule } from "@nestjs/axios";
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from 'src/user/user.module';
 import { UserService } from 'src/user/user.service';
+import { UserController } from 'src/user/user.controller';
+import { UserRepository } from 'src/user/user.repository';
 
 @Module({
   imports: [
@@ -20,15 +22,19 @@ import { UserService } from 'src/user/user.service';
       username: 'yijyo',
       password: '1234',
       database: 'health_api',
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       synchronize: true, // 개발 환경에서만 true로 설정
     }),
     UserModule,
   ],
   controllers: [
     HealthController,
-
+    UserController,
   ],
-  providers: [UserService]
+  providers: [
+    UserService,
+    UserRepository
+  ]
 })
 
 export class CommonModule {
