@@ -3,6 +3,8 @@ import { HealthController } from "./health.controller";
 import { HealthCheck, TerminusModule } from "@nestjs/terminus";
 import { HttpModule } from "@nestjs/axios";
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from 'src/user/user.module';
+import { UserService } from 'src/user/user.service';
 
 @Module({
   imports: [
@@ -19,12 +21,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: '1234',
       database: 'health_api',
       synchronize: true, // 개발 환경에서만 true로 설정
-    })
+    }),
+    UserModule,
   ],
   controllers: [
     HealthController,
 
   ],
+  providers: [UserService]
 })
 
 export class CommonModule {
